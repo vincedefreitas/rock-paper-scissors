@@ -1,6 +1,26 @@
 // Create function called computerPlay() that randomly returns Rock Paper or Scissors
 
+function computerPlay() {
+    let choice = ["rock", "paper", "scissors"];
+    let computerSelection = choice[Math.floor(Math.random() * choice.length)];
+    return computerSelection;
+}
+
+console.log(computerPlay())
+
 // Write playRound() function that plays single round of rock paper scissors
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === "rock" && computerSelection === "paper") {
+        return "You lose! Paper beats Rock"
+    } 
+}
+
+console.log(playRound("rock", "paper"))
+
+// rock beats scissors
+// rock draws with rock
+// paper beats rock
 
 // function must contain the parameters playerSelection and computerSelection
 
@@ -16,7 +36,7 @@
 
 // prompt user for input
 
-let playerSelection = prompt("Rock, Paper or Scissors? ")
+// let playerSelection = prompt("Rock, Paper or Scissors? ")
 
 
 
