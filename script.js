@@ -6,31 +6,41 @@ function computerPlay() {
     return computerSelection;
 }
 
-console.log(computerPlay())
-
 // Write playRound() function that plays single round of rock paper scissors
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "paper") {
-        return "You lose! Paper beats Rock"
-    } 
+        return "You lose! Paper beats Rock";
+    } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        return "You win! Rock beats Scissors";
+    } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        return "You lose! Rock beats Scissors";
+    } else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You win! Scissors beats Paper";
+    } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You lose! Scissors beats Paper";
+    } else if (playerSelection === "paper" && computerSelection === "rock") {
+        return "You win! Paper beats Rock";
+    } else {
+        return "It's a draw! Go again";
+    }
 }
 
-console.log(playRound("rock", "paper"))
-
-// rock beats scissors
-// rock draws with rock
-// paper beats rock
-
-// function must contain the parameters playerSelection and computerSelection
-
-// return string that declares winner of round
-
-// playerSelection should be case insensitive
 
 // Write new function called game() - call playRound function inside of this to play a 5
 // round game that keeps score and reports a winner or loser at end (hint: loops)
 // for (let i = 0; i < 5; i++;)
+
+// function game() {
+//     let playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase
+//     const computerSelection = computerPlay()
+//     for (let i = 0; i < 5; i++) {
+        
+//     }
+// }
+
+// game()
+
 
 // display result at end of each round and winner at the end
 
