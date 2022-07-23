@@ -6,7 +6,7 @@ console.log("Welcome to Rock Paper Scissors! Best of 5")
 function computerPlay() {
     let choice = ["rock", "paper", "scissors"];
     let computerSelection = choice[Math.floor(Math.random() * choice.length)];
-    return computerSelection;
+    return computerSelection; 
 }
 
 function playRound(playerSelection, computerSelection) {
