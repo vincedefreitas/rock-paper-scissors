@@ -1,8 +1,6 @@
 let playerScore = 0
 let computerScore = 0
 
-console.log("Welcome to Rock Paper Scissors! Best of 5")
-
 function computerPlay() {
     let choice = ["rock", "paper", "scissors"];
     let computerSelection = choice[Math.floor(Math.random() * choice.length)];
@@ -35,22 +33,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    for (let i = 0; i < 10; i++) {
-        if (playerScore < 3 && computerScore < 3) {
-            let playerSelection = prompt("Rock, Paper or Scissors? ").toLowerCase()
-            let computerSelection = computerPlay()
-            console.log(`You chose ${playerSelection}`)
-            console.log(`Computer chose ${computerSelection}`)
-            console.log(playRound(playerSelection, computerSelection))
-            console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
-        } 
-    }
-    if (computerScore === 3) {
-        console.log("Computer wins! Commiserations")
-    } else {
-        console.log("You win! Congratulations!")
-    }
-}
+const buttons = document.querySelectorAll('button');
+const playerChoice = document.querySelector('.player-choice')
+const computerChoice = document.querySelector('.computer-choice')
+const result = document.querySelector('.result')
+const score = document.querySelector('.score')
+const winner = document.querySelector('.winner')
 
-game()
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function() {
+        if (playerScore < 5 && computerScore < 5) {
+            let playerSelection = button.className.toLowerCase();
+            let computerSelection = computerPlay()
+            playerChoice.textContent = `You chose ${playerSelection}`;
+            computerChoice.textContent = `Computer chose ${computerSelection}`;
+            result.textContent = playRound(playerSelection, computerSelection);
+            score.textContent = `Player Score: ${playerScore} Computer Score: ${computerScore}`;
+            if (computerScore === 5) {
+                winner.textContent = "Computer wins! Commiserations";
+                return
+            } else if (playerScore === 5) {
+                winner.textContent = "You win! Congratulations";
+                return
+            };
+        } 
+    });
+});
